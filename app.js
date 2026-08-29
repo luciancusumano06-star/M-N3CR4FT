@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    NEXUS GAMING
    Main application logic
@@ -21,7 +20,7 @@
 */
 
 const GAME_URLS = {
-    eaglercraft: ""
+    eaglercraft: "./games/eaglercraft/index.html"
 };
 
 
