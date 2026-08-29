@@ -573,4 +573,3 @@ if ("serviceWorker" in navigator) {
     );
 
 }
-```
