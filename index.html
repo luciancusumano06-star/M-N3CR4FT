@@ -1,0 +1,466 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080808">
+    <meta name="description" content="NEXUS Gaming — browser gaming dashboard">
+
+    <title>NEXUS Gaming</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">N</div>
+
+            <div>
+                <h1>NEXUS</h1>
+                <span>GAMING</span>
+            </div>
+        </div>
+
+        <nav>
+            <button class="nav-item active" data-page="home">
+                <span>⌂</span>
+                Home
+            </button>
+
+            <button class="nav-item" data-page="games">
+                <span>🎮</span>
+                Games
+            </button>
+
+            <button class="nav-item" data-page="favorites">
+                <span>★</span>
+                Favorites
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="nav-item" data-page="settings">
+                <span>⚙</span>
+                Settings
+            </button>
+
+            <div class="status">
+                <div class="status-dot"></div>
+                <span>System Ready</span>
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                NEXUS
+            </div>
+
+            <div class="search">
+                <span>⌕</span>
+                <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Search games..."
+                >
+            </div>
+
+            <button id="themeButton" class="icon-button">
+                ◐
+            </button>
+
+        </header>
+
+
+        <!-- HOME -->
+        <section id="home" class="page active-page">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="badge">
+                        BROWSER GAMING
+                    </div>
+
+                    <h2>
+                        Your games.<br>
+                        <strong>Your way.</strong>
+                    </h2>
+
+                    <p>
+                        A lightweight gaming dashboard designed
+                        for modern browsers and Chromebooks.
+                    </p>
+
+                    <button
+                        class="primary-button"
+                        onclick="openGame('eaglercraft')"
+                    >
+                        PLAY NOW
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+                <div class="hero-decoration">
+                    <div class="cube">N</div>
+                </div>
+
+            </div>
+
+
+            <div class="section-header">
+                <div>
+                    <h3>Featured</h3>
+                    <p>Jump back into your favorite games.</p>
+                </div>
+
+                <button
+                    class="text-button"
+                    onclick="showPage('games')"
+                >
+                    View all →
+                </button>
+            </div>
+
+
+            <div class="game-grid">
+
+                <article class="game-card featured-card">
+
+                    <div class="game-image minecraft">
+                        <div class="game-overlay">
+                            <span class="game-logo">EAGLERCRAFT</span>
+                        </div>
+                    </div>
+
+                    <div class="game-info">
+
+                        <div>
+                            <h4>Eaglercraft</h4>
+                            <span>Browser Minecraft</span>
+                        </div>
+
+                        <button
+                            class="play-small"
+                            onclick="openGame('eaglercraft')"
+                        >
+                            ▶
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="game-card">
+
+                    <div class="game-image neon">
+                        <span>COMING SOON</span>
+                    </div>
+
+                    <div class="game-info">
+
+                        <div>
+                            <h4>Arcade</h4>
+                            <span>More games soon</span>
+                        </div>
+
+                        <button class="play-small disabled">
+                            🔒
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="game-card">
+
+                    <div class="game-image dark">
+                        <span>NEXUS</span>
+                    </div>
+
+                    <div class="game-info">
+
+                        <div>
+                            <h4>More Games</h4>
+                            <span>Custom game support</span>
+                        </div>
+
+                        <button
+                            class="play-small"
+                            onclick="showPage('games')"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAMES -->
+        <section id="games" class="page">
+
+            <div class="page-heading">
+                <span class="badge">LIBRARY</span>
+                <h2>Games</h2>
+                <p>Your browser gaming library.</p>
+            </div>
+
+            <div id="gamesGrid" class="game-grid">
+
+                <article class="game-card searchable-game"
+                    data-name="eaglercraft minecraft">
+
+                    <div class="game-image minecraft">
+                        <div class="game-overlay">
+                            <span class="game-logo">EAGLERCRAFT</span>
+                        </div>
+                    </div>
+
+                    <div class="game-info">
+
+                        <div>
+                            <h4>Eaglercraft</h4>
+                            <span>Minecraft in the browser</span>
+                        </div>
+
+                        <div class="card-actions">
+
+                            <button
+                                class="favorite-button"
+                                data-game="eaglercraft"
+                            >
+                                ☆
+                            </button>
+
+                            <button
+                                class="play-small"
+                                onclick="openGame('eaglercraft')"
+                            >
+                                ▶
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="game-card searchable-game"
+                    data-name="arcade">
+
+                    <div class="game-image neon">
+                        <span>COMING SOON</span>
+                    </div>
+
+                    <div class="game-info">
+
+                        <div>
+                            <h4>Arcade</h4>
+                            <span>Coming soon</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div id="noResults" class="no-results hidden">
+                No games found.
+            </div>
+
+        </section>
+
+
+        <!-- FAVORITES -->
+        <section id="favorites" class="page">
+
+            <div class="page-heading">
+                <span class="badge">SAVED</span>
+                <h2>Favorites</h2>
+                <p>Your saved games appear here.</p>
+            </div>
+
+            <div id="favoritesList" class="favorites-list">
+                <div class="empty-state">
+                    <div>☆</div>
+                    <h3>No favorites yet</h3>
+                    <p>Add games to your favorites from the Games page.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- SETTINGS -->
+        <section id="settings" class="page">
+
+            <div class="page-heading">
+                <span class="badge">CONFIGURATION</span>
+                <h2>Settings</h2>
+                <p>Customize your NEXUS experience.</p>
+            </div>
+
+            <div class="settings-panel">
+
+                <div class="setting">
+                    <div>
+                        <h4>Dark Mode</h4>
+                        <p>Use the dark NEXUS interface.</p>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="darkMode"
+                            checked
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+
+                <div class="setting">
+                    <div>
+                        <h4>Animations</h4>
+                        <p>Enable interface animations.</p>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="animations"
+                            checked
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+
+                <div class="setting">
+                    <div>
+                        <h4>Fullscreen Game Mode</h4>
+                        <p>Attempt fullscreen when launching a game.</p>
+                    </div>
+
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="fullscreenMode"
+                            checked
+                        >
+                        <span></span>
+                    </label>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- GAME WINDOW -->
+
+<div id="gameWindow" class="game-window">
+
+    <div class="game-toolbar">
+
+        <div class="game-title">
+            <span class="nexus-mini">N</span>
+            <span id="currentGame">GAME</span>
+        </div>
+
+        <div class="game-controls">
+
+            <button onclick="reloadGame()">
+                ↻
+            </button>
+
+            <button onclick="toggleFullscreen()">
+                ⛶
+            </button>
+
+            <button onclick="closeGame()">
+                ✕
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="game-container">
+
+        <!--
+            Replace the iframe source below with the URL of an
+            Eaglercraft instance you are authorized to use.
+        -->
+
+        <iframe
+            id="gameFrame"
+            title="Game"
+            src="about:blank"
+            allowfullscreen
+        ></iframe>
+
+        <div id="gamePlaceholder" class="game-placeholder">
+
+            <div class="placeholder-icon">
+                N
+            </div>
+
+            <h2>Eaglercraft</h2>
+
+            <p>
+                Add your authorized Eaglercraft web URL
+                in <strong>app.js</strong>.
+            </p>
+
+            <button
+                class="primary-button"
+                onclick="loadConfiguredGame()"
+            >
+                LOAD GAME
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
+```
